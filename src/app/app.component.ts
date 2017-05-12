@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Location } from './location';
+import { LOCATIONS } from './locations';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Campaign Tracker';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 51.540597;
+  lng: number = -0.1090267;
+  locations: Location[] = [];
+  ngOnInit() : void {
+    this.locations = LOCATIONS;
+  }
 }
