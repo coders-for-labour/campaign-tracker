@@ -1,3 +1,8 @@
-<h1>
+<div id="header">
+  <h1>
   {{title}}
-</h1>
+  </h1>
+</div>
+<sebm-google-map [latitude]="lat" [longitude]="lng">
+  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+</sebm-google-map>
