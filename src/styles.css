@@ -149,7 +149,7 @@ text-shadow:
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.9);
 }
 
 #current-image img {
@@ -159,4 +159,39 @@ text-shadow:
   transform: translateX(-50%) translateY(-50%);
   max-width: 100%;
   max-height: 100%;
+}
+
+#current-image .credit {
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #e4003b;
+  z-index: 5;
+}
+
+#current-image .credit a {
+  color: #e4003b;
+}
+
+#c4l {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-image: url(http://www.codersforlabour.com/assets/logo-full2.png);
+  background-size: 100% auto;
+  width: 53px;
+  height: 64px;
+  z-index: 21;
+  background-repeat: no-repeat;
+  transition: opacity 0.5s ease;
+  opacity: 0.6;
+}
+
+#c4l:hover {
+  opacity: 1;
 }

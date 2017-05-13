@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { Location } from './location';
+import { Location, LocationImage } from './location';
 import { LOCATIONS } from './locations';
 import { MAP_STYLES } from "./map-styles";
 import { AgmMap, AgmMarker, MapTypeStyle } from "@agm/core";
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   private loaded = false;
 
   public locationIndex: number = 0;
-  public currentImage: string;
+  public currentImage: LocationImage;
 
   public title = 'Campaign Tracker';
   public locations: Location[] = LOCATIONS;

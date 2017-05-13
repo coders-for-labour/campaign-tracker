@@ -3,20 +3,25 @@
   {{title}}
   </h1>
 </div>
+<a id="c4l" href="http://www.codersforlabour.com" target="_blank" title="Made by Volunteers - Coders for Labour"></a>
 <agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles" [streetViewControl]="false" [clickableIcons]="false">
   <agm-marker *ngFor="let l of locations; let i = index" [title]="l.address" [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)">
   <agm-info-window [disableAutoPan]="true" [longitude]="l.lng" [latitude]="l.lat" [isOpen]="l == currentLocation">
       <h1>{{ l.address }}</h1>
         <ul class="images" *ngIf="l.images && l.images.length > 0">
           <li *ngFor="let image of l.images" (click)="currentImage = image">
-            <div class="image" [style.backgroundImage]="'url(' + image + ')'"></div>
+            <div class="image" [style.backgroundImage]="'url(' + image.url + ')'"></div>
           </li>
         </ul>
   </agm-info-window>
   </agm-marker>
 </agm-map>
 <div id="current-image" *ngIf="currentImage">
-  <img [src]="currentImage" (click)="currentImage = null" />
+  <img [src]="currentImage?.url" (click)="currentImage = null" />
+  <div class="credit" *ngIf="currentImage?.credit">
+    Credit: <a [href]="currentImage.creditLink" target="_blank" *ngIf="currentImage.creditLink">{{ currentImage.credit }}</a>
+    <span *ngIf="!currentImage.creditLink">{{ currentImage.credit }}</span>
+  </div>
 <div class="previous" (click)="previousImage()" *ngIf="currentLocation.images && currentLocation.images.length > 0">
   <i class="fa fa-chevron-left"></i>
 </div>
