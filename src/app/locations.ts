@@ -5,7 +5,7 @@ export const LOCATIONS: Location[] = [
         name: "",
         date: "2017-04-18",
         address: "Croydon",
-        images: [""],
+        images: ["assets/images/croydon-1.jpg", "assets/images/croydon-2.jpg", "assets/images/croydon-3.jpg"],
         lat: 51.3678072,
         lng: -0.1522787
     },

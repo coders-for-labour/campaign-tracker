@@ -24,6 +24,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   private loaded = false;
 
   public locationIndex: number = 0;
+  public currentImage: string;
 
   public title = 'Campaign Tracker';
   public locations: Location[] = LOCATIONS;
@@ -67,6 +68,40 @@ export class AppComponent implements OnInit, AfterViewInit {
         return;
 
       this.locationIndex = newIndex;
+  }
+
+  public nextImage(): void {
+    if (!this.currentImage || !this.currentLocation || !this.currentLocation.images || this.currentLocation.images.length == 0)
+      return;
+
+    var index = this.currentLocation.images.indexOf(this.currentImage);
+
+    if (index == -1)
+      return;
+
+    var newIndex = index + 1;
+
+    if (newIndex > this.currentLocation.images.length - 1)
+      newIndex = 0;
+
+    this.currentImage = this.currentLocation.images[newIndex];
+  }
+
+  public previousImage(): void {
+    if (!this.currentImage || !this.currentLocation || !this.currentLocation.images || this.currentLocation.images.length == 0)
+      return;
+
+    var index = this.currentLocation.images.indexOf(this.currentImage);
+
+    if (index == -1)
+      return;
+
+    var newIndex = index - 1;
+
+    if (newIndex < 0)
+      newIndex = this.currentLocation.images.length - 1;
+
+    this.currentImage = this.currentLocation.images[newIndex];
   }
 
   private getDistance(p1: LatLng, p2: LatLng) {

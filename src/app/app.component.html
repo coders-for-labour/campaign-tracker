@@ -3,19 +3,34 @@
   {{title}}
   </h1>
 </div>
-<agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles">
-  <agm-marker *ngFor="let l of locations; let i = index" [title]='l.address' [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)">
+<agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles" [streetViewControl]="false" [clickableIcons]="false">
+  <agm-marker *ngFor="let l of locations; let i = index" [title]="l.address" [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)">
   <agm-info-window [disableAutoPan]="true" [longitude]="l.lng" [latitude]="l.lat" [isOpen]="l == currentLocation">
       <h1>{{ l.address }}</h1>
+        <ul class="images" *ngIf="l.images && l.images.length > 0">
+          <li *ngFor="let image of l.images" (click)="currentImage = image">
+            <div class="image" [style.backgroundImage]="'url(' + image + ')'"></div>
+          </li>
+        </ul>
   </agm-info-window>
   </agm-marker>
 </agm-map>
-<div id="current-location">
-  {{ currentLocation?.address }} {{ distanceFromIslington | number:'1.0-0' }} Miles from Islington
-</div>
-<div id="previous" (click)="previous()" *ngIf="locationIndex > 0">
+<div id="current-image" *ngIf="currentImage">
+  <img [src]="currentImage" (click)="currentImage = null" />
+<div class="previous" (click)="previousImage()" *ngIf="currentLocation.images && currentLocation.images.length > 0">
   <i class="fa fa-chevron-left"></i>
 </div>
-<div id="next" (click)="next()" *ngIf="locationIndex < locations.length - 1">
+<div class="next" (click)="nextImage()" *ngIf="currentLocation.images && currentLocation.images.length > 0">
+  <i class="fa fa-chevron-right"></i>
+</div>
+</div>
+<div id="current-location">
+  {{ currentLocation.date | date:'dd/MM/yyyy' }}<br/>
+  {{ distanceFromIslington | number:'1.0-0' }} miles from Islington
+</div>
+<div class="previous" (click)="previous()" *ngIf="locationIndex > 0">
+  <i class="fa fa-chevron-left"></i>
+</div>
+<div class="next" (click)="next()" *ngIf="locationIndex < locations.length - 1">
   <i class="fa fa-chevron-right"></i>
 </div>
