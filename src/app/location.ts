@@ -1,8 +1,8 @@
-export class Location {
+export interface Location {
   name: string;
   address: string;
   date: string;
-  image: string;
+  images: string[];
   lat: number;
-  lng: number;
+  lng: number; 
 }
