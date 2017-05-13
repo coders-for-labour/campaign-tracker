@@ -48,6 +48,10 @@ html, body{
   color: #e4003b;
 }
 
+#current-location .distance {
+  font-size: 18px;
+}
+
 .next,
 .previous {
   position: fixed;

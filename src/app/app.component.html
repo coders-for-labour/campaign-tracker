@@ -30,8 +30,10 @@
 </div>
 </div>
 <div id="current-location">
-  {{ currentLocation.date | date:'dd/MM/yyyy' }}<br/>
-  {{ distanceFromIslington | number:'1.0-0' }} miles from Islington
+  {{ currentLocation.date | date:'dd/MM/yyyy' }} - {{ currentLocation.address }}
+  <div class="distance">
+    ({{ distanceFromIslington | number:'1.0-0' }} miles from Islington)
+  </div>
 </div>
 <div class="previous" (click)="previous()" *ngIf="locationIndex > 0">
   <i class="fa fa-chevron-left"></i>
