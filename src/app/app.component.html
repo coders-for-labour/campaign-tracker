@@ -3,6 +3,19 @@
   {{title}}
   </h1>
 </div>
-<sebm-google-map [latitude]="lat" [longitude]="lng">
-  <sebm-google-map-marker *ngFor="let l of locations" [title]='l.address' [latitude]="l.lat" [longitude]="l.lng"></sebm-google-map-marker>
-</sebm-google-map>
+<agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles">
+  <agm-marker *ngFor="let l of locations; let i = index" [title]='l.address' [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)">
+  <agm-info-window [disableAutoPan]="true" [longitude]="l.lng" [latitude]="l.lat" [isOpen]="l == currentLocation">
+      <h1>{{ l.address }}</h1>
+  </agm-info-window>
+  </agm-marker>
+</agm-map>
+<div id="current-location">
+  {{ currentLocation?.address }} {{ distanceFromIslington | number:'1.0-0' }} Miles from Islington
+</div>
+<div id="previous" (click)="previous()" *ngIf="locationIndex > 0">
+  <i class="fa fa-chevron-left"></i>
+</div>
+<div id="next" (click)="next()" *ngIf="locationIndex < locations.length - 1">
+  <i class="fa fa-chevron-right"></i>
+</div>

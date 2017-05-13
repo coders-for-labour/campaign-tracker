@@ -1,7 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+html, body{
   margin: 0;
   padding: 0;
+  overflow: hidden;
 
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.gm-style-iw + div {
+  display: none;
+}
+
+#current-location {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 20px;
+}
+
+#next,
+#previous {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  min-width: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#next i,
+#previous i {
+  font-size: 80px;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 0;
+  right: 0;
+text-shadow:
+   -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
+}
+
+#next {
+  right: 0;
+}
+
+#previous {
+  left: 0;
 }
