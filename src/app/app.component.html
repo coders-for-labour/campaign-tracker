@@ -4,8 +4,8 @@
   </h1>
 </div>
 <a id="c4l" href="http://www.codersforlabour.com" target="_blank" title="Made by Volunteers - Coders for Labour"></a>
-<agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles" [streetViewControl]="false" [clickableIcons]="false">
-  <agm-marker *ngFor="let l of locations; let i = index" [title]="l.address" [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)">
+<agm-map #map [latitude]="currentLocation?.lat" [longitude]="currentLocation?.lng" [styles]="styles" [streetViewControl]="false" [clickableIcons]="false" [zoomControl]="false" [disableDoubleClickZoom]="true" [zoom]="7">
+  <agm-marker *ngFor="let l of locations; let i = index" [title]="l.address" [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)" iconUrl="assets/images/map-marker.png">
   <agm-info-window [disableAutoPan]="true" [longitude]="l.lng" [latitude]="l.lat" [isOpen]="l == currentLocation">
       <h1>{{ l.address }}</h1>
         <ul class="images" *ngIf="l.images && l.images.length > 0">
