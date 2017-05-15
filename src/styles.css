@@ -8,9 +8,17 @@ html, body{
 }
 
 .sebm-google-map-container{
-  width: 100%;
-  height: 100%;
+  top: 59px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   position: absolute;
+}
+
+.agm-map-container-inner {
+  position: absolute;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 #header{
@@ -18,18 +26,15 @@ html, body{
   position: fixed;
   z-index: 20;
   text-align: center;
+  background-color: #e4003b;
 }
 
 #header h1 {
-  width: 50%;
-  min-width: 300px;
   margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  background-color: #e4003b;
   color: #fff;
   text-transform: uppercase;
+  padding: 0;
+  line-height: 59px;
 }
 
 .gm-style-iw + div {
@@ -46,6 +51,7 @@ html, body{
   font-size: 25px;
   padding: 20px;
   color: #e4003b;
+  text-shadow: rgb(255, 255, 255) 0px 0px 10px;
 }
 
 #current-location .distance {
@@ -55,7 +61,7 @@ html, body{
 .next,
 .previous {
   position: fixed;
-  top: 0;
+  top: 50px;
   bottom: 0;
   width: 5%;
   min-width: 80px;
@@ -184,12 +190,12 @@ text-shadow:
 
 #c4l {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  background-image: url(http://www.codersforlabour.com/assets/logo-full2.png);
+  top: 6px;
+  right: 8px;
+  background-image: url(http://www.codersforlabour.com/assets/logo-white.png);
   background-size: 100% auto;
-  width: 53px;
-  height: 64px;
+  width: 40px;
+  height: 46px;
   z-index: 21;
   background-repeat: no-repeat;
   transition: opacity 0.5s ease;
@@ -198,4 +204,10 @@ text-shadow:
 
 #c4l:hover {
   opacity: 1;
+}
+
+@media (max-width: 599px) { 
+  #header h1 {
+    font-size: 20px;
+  }
 }

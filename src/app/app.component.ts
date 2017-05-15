@@ -21,7 +21,7 @@ function rad(x:number) {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  private loaded = false;
+  public loaded = false;
 
   public locationIndex: number = 0;
   public currentImage: LocationImage;
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {  }
  
   ngAfterViewInit() : void {
-    
+    setTimeout(() => this.loaded = true, 1000);
   }
 
   public onLocationClick(data: Location) {

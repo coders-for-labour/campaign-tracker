@@ -3,13 +3,9 @@ import { Location } from './location';
 export const LOCATIONS: Location[] = [
     {
         name: "",
-        date: "2017-04-18",
+        date: "2017-04-19",
         address: "Croydon",
-        images: [
-            { url: "assets/images/croydon-1.jpg", credit: "@person1", creditLink: "http://www.twitter.com" }, 
-            { url: "assets/images/croydon-2.jpg", credit: "@person2" }, 
-            { url: "assets/images/croydon-3.jpg", credit: "@person3", creditLink: "http://www.twitter.com" } 
-        ],
+        images: null,
         lat: 51.3678072,
         lng: -0.1522787
     },
