@@ -8,6 +8,7 @@
   <agm-marker *ngFor="let l of locations; let i = index" [title]="l.address" [latitude]="l.lat" [longitude]="l.lng" (markerClick)="onLocationClick(l)" iconUrl="assets/images/map-marker.png">
   <agm-info-window [disableAutoPan]="true" [longitude]="l.lng" [latitude]="l.lat" [isOpen]="loaded && l == currentLocation">
       <h1>{{ l.address }}</h1>
+      <div class="description" *ngIf="l.description">{{ l.description }}</div>
         <ul class="images" *ngIf="l.images && l.images.length > 0">
           <li *ngFor="let image of l.images" (click)="currentImage = image">
             <div class="image" [style.backgroundImage]="'url(' + image.url + ')'"></div>
