@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +18,7 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: environment.mapsApiKey
     })
   ],
   providers: [],
