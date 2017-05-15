@@ -5,8 +5,8 @@ export interface LocationImage {
 }
 
 export interface Location {
-  name: string;
   address: string;
+  description?: string;
   date: string;
   images: LocationImage[];
   lat: number;
